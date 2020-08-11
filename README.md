@@ -1,8 +1,10 @@
-# Game Content Cache Hostnames
+# Windows Update Cache Hostnames
 
 ## Introduction
 
-This is a list of all hostnames that are required to be redirected for running a game content cache. This list will change frequently so this is designed to be a definitive list.
+This is a list of all hostnames that are required to be redirected for running a Windows update cache. This list will change frequently so this is designed to be a definitive list.
+
+This list is forked from `uklans/cache-domains` for the purpose of providing a simple caching list for windows updates. This list is used with a caching proxy to ease the amount of times updates have to be downloaded from the internet on multiple Windows PCs. I am using LanCache for its simplicity in setting it up on Docker. Visit https://lancache.net/ for information about LanCache. Also visit https://lancache.net/docs/containers/monolithic/cache_domains/ for information on adding custom forks/branches to a LanCache server.
 
 ## Usage
 
@@ -11,7 +13,7 @@ You can use this list one of two ways:
  - Overriding DNS for these hostnames to point to the IP of your cache server.
  - Use them in Squid with WCCP to redirect content to the right cache server.
 
-There is a cache_domains.json file to define CDNs and additional meta deta with the following structure
+There is a cache_domains.json file to define CDNs and additional meta data with the following structure
 
 - cache_domains: Array of cache_domain object
     - name: shortname for the cache domain. Should match `^[0-9A-Za-z]$`
@@ -23,9 +25,9 @@ There is a cache_domains.json file to define CDNs and additional meta deta with 
 {
     "cache_domains": [
         {
-            "name": "steam",
-            "description": "CDN for steam platform",
-            "domain_files": ["steam.txt"]
+            "name": "wsus",
+            "description": "CDN for windows updates",
+            "domain_files": ["windowsupdates.txt"]
         }
     ]
 }
